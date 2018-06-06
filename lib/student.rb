@@ -21,6 +21,7 @@ class Student
     attributes_hash.each do |key, value|
       attributes_hash[:"#{key}"] = value
     end
+    attributes_hash
   end
 
   def self.all
