@@ -33,8 +33,8 @@ class Scraper
     names_array.each do |name|
     master_array << {:name => name, :location => location_array[x], :profile_url => webpage_array[x]}
     x = x + 1
-   end
-   master_array
+    end
+    master_array
 
   end
 
