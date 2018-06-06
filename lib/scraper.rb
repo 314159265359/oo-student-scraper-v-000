@@ -42,27 +42,27 @@ class Scraper
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
 
-    students_twitter = []
-    students_linkedin = []
-    students_github = []
-    students_youtube = []
-    students_blog = []
+    student_twitter = []
+    student_linkedin = []
+    student_github = []
+    student_youtube = []
+    student_blog = []
 
     doc.xpath('//div[@class="social-icon-container"]/a').map do |link|
       if link['href'].include?("twitter")
-        students_twitter << link['href']
+        student_twitter << link['href']
       end
     end
 
     doc.xpath('//div[@class="social-icon-container"]/a').map do |link|
       if link['href'].include?("linkedin")
-        students_linkedin << link['href']
+        student_linkedin << link['href']
       end
     end
 
     doc.xpath('//div[@class="social-icon-container"]/a').map do |link|
       if link['href'].include?("github")
-        students_github << link['href']
+        student_github << link['href']
       end
     end
 
@@ -70,32 +70,30 @@ class Scraper
       if !(link['href'].include?("github")) &&
          !(link['href'].include?("linkedin")) &&
          !(link['href'].include?("twitter"))
-         students_blog = link['href']
+         student_blog = link['href']
       end
     end
 
-    students_quote = doc.css(".profile-quote").text
-    students_bio = doc.css(".description-holder p").text
+    student_quote = doc.css(".profile-quote").text
+    student_bio = doc.css(".description-holder p").text
 
-    students_twitter
-    students_linkedin
-    students_github
-    students_youtube
-      if students_youtube = ""
-        students_youtube = nil
+    student_twitter
+    student_linkedin
+    student_github
+    student_youtube
+      if student_youtube = ""
+        student_youtube = nil
       end
-    students_blog
+    student_blog
 
-    out_put = {:twitter=>students_twitter[0],
-               :linkedin=>students_linkedin[0],
-               :github=>students_github[0],
-               :profile_quote=>students_quote,
-               :blog=>students_blog,
-               :bio=> students_bio}
-    out_put.delete_if {|key, value| value == [] || value == nil}
-
-    out_put
-
+    content = {:twitter=>student_twitter[0],
+               :linkedin=>student_linkedin[0],
+               :github=>student_github[0],
+               :profile_quote=>student_quote,
+               :blog=>student_blog,
+               :bio=> student_bio}
+    content.delete_if {|key, value| value == [] || value == nil}
+    content
     end
 
 
