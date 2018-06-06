@@ -95,9 +95,9 @@ class Scraper
     out_put.delete_if {|key, value| value == [] || value == nil}
 
     out_put
-    end
+    # end
 
-  end
 end
+
 
 end
