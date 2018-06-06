@@ -18,10 +18,11 @@ class Student
   end
 
   def add_student_attributes(attributes_hash)
+    attributes = []
     attributes_hash.each do |key, value|
-      attributes_hash[:key] = value
+      attributes[:key] = value
     end
-    attributes_hash
+    attributes
   end
 
   def self.all
