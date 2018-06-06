@@ -11,7 +11,7 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    students.array do |student|
+    students_array do |student|
       Scraper.scrape_index_page(student)
     end
   end
