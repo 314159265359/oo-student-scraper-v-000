@@ -19,7 +19,6 @@ class Student
       index += 1
     end
     student_hash
-
   end
 
   def add_student_attributes(attributes_hash)
