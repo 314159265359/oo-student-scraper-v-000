@@ -94,7 +94,7 @@ class Scraper
                :bio=> student_bio}
     content.delete_if {|key, value| value == [] || value == nil}
     content
-    end
+ end
 
 
 end
