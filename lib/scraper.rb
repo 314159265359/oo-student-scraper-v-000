@@ -29,10 +29,10 @@ class Scraper
 
     master_array = []
     hash = {}
-    x = 0
+    holder = 0
     names_array.each do |name|
     master_array << {:name => name, :location => location_array[x], :profile_url => webpage_array[x]}
-    x = x + 1
+    holder += 1
     end
     master_array
 
