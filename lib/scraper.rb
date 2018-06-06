@@ -4,7 +4,7 @@ require 'pry'
 class Scraper
 
   def self.scrape_index_page(index_url)
-    html = open(index_url) 
+    html = open(index_url)
     list = Nokogiri::HTML(html)
     names = list.css(".student-name")
     names_array = []
@@ -12,14 +12,14 @@ class Scraper
       names_array << item.text
     end
     names_array
-    
+
     locations = list.css(".student-location")
     location_array = []
     locations.each do |item|
       location_array << item.text
     end
     location_array
-    
+
     webpages = list.css(".student-card a[href]")
     webpage_array = []
     webpages.select do |item|
@@ -29,10 +29,10 @@ class Scraper
 
     master_array = []
     hash = {}
-    holder = 0
+    index = 0
     names_array.each do |name|
-    master_array << {:name => name, :location => location_array[x], :profile_url => webpage_array[x]}
-    holder += 1
+    master_array << {:name => name, :location => location_array[index], :profile_url => webpage_array[index]}
+    index += 1
     end
     master_array
 
