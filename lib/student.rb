@@ -12,9 +12,12 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    student_name = students_array[0]
-    student_location = students_array[1]
-    student_profile = students_array[2]
+    index = 0
+    students_array.each do |student|
+      student_hash[index] = students_array[index]
+      index += 1
+    end
+    
   end
 
   def add_student_attributes(attributes_hash)
