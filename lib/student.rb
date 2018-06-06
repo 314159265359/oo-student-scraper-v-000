@@ -18,7 +18,7 @@ class Student
       student_hash[index] = students_array[index]
       index += 1
     end
-    student_hash
+    Student.new(student_hash)
   end
 
   def add_student_attributes(attributes_hash)
